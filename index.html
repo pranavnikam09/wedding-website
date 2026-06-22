@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Rutuja & Vikram</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Audio Elements -->
+    <!-- Temple Bells for Ganpati Screen -->
+    <audio id="templeBells" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" loop></audio>
+    
+    <!-- Traditional Marathi Wedding Instrumental (Shehnai/Flute/Santoor) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio Controls -->
+    <div id="audioControls" class="hidden">
+        <button id="togglePlay" class="control-btn"><i class="fas fa-pause"></i></button>
+        <button id="toggleMute" class="control-btn"><i class="fas fa-volume-up"></i></button>
+    </div>
+
+    <!-- Opening Experience -->
+    <div id="openingScreen">
+        <!-- Ganpati Bappa Blessing -->
+        <div id="stageGanpati" class="opening-stage active">
+            <div class="ganpati-bg" style="background-image: url('assets/ganpati_bappa.png');"></div>
+            <div class="ganpati-content">
+                <h2 class="shloka-title">🕉️ श्री गणेशाय नमः 🕉️</h2>
+                <p class="shloka-text">
+                    वक्रतुंड महाकाय सूर्यकोटि समप्रभ।<br>
+                    निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
+                </p>
+                <button id="openInvitationBtn" class="premium-btn" style="margin-top: 2rem;">Enter Invitation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="hidden">
+        
+        <!-- Hero Section: Names, Invitee, Family -->
+        <section id="hero">
+            <div class="hero-bg" style="background-image: url('assets/couple_1.png');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content" style="padding: 0 1rem;">
+                <!-- Names -->
+                <h1 class="hero-title">Rutuja <span class="heart">❤️</span> Vikram</h1>
+                
+                <!-- Invitation Text -->
+                <p class="invitation-text" style="font-family: var(--font-subheading); font-size: 1.4rem; color: var(--ivory); margin: 1.5rem 0; font-style: italic; letter-spacing: 1px;">
+                    You are cordially invited to celebrate the wedding of Rutuja & Vikram.
+                </p>
+
+                <!-- Invited By -->
+                <div class="invited-by-hero" style="margin-top: 2rem;">
+                    <p style="color: var(--saffron); font-size: 1.2rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">Invited By</p>
+                    <div style="font-family: var(--font-body); font-size: 1.1rem; color: var(--ivory); margin-bottom: 1rem;">
+                        <p>Mr. Vilas Nikam</p>
+                        <p>Ms. Nirmala Nikam</p>
+                        <p>Pranav Nikam</p>
+                    </div>
+                    <div class="nikam-family-glow">
+                        <h2 style="font-size: 3rem;">NIKAM FAMILY</h2>
+                    </div>
+                </div>
+
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <p>Scroll to Explore</p>
+            </div>
+        </section>
+
+        <!-- Our Celebration -->
+        <section id="celebration" class="section-padding">
+            <div class="container text-center">
+                <img src="assets/floral_border.png" class="decorative-border top-border" alt="" style="max-width: 100%; height: auto;">
+                <h2 class="section-title">Our Wedding Details</h2>
+                <p class="section-subtitle">With the blessings of Lord Ganesha and our elders, we cordially invite you to be a part of our beautiful journey as we tie the knot and step into a new chapter of our lives together.</p>
+                <img src="assets/floral_border.png" class="decorative-border bottom-border" alt="" style="max-width: 100%; height: auto;">
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section id="countdown" class="section-padding dark-bg">
+            <div class="container">
+                <h2 class="section-title text-light">The Countdown Begins</h2>
+                <div class="timer-container">
+                    <div class="time-box">
+                        <span id="days">00</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+
+                <!-- Couple Photos Showcase Slider -->
+                <div class="wedding-slider-container reveal" style="margin-top: 4rem;">
+                    <div class="slider-track" id="sliderTrack">
+                        <img src="assets/couple_1.png" alt="Couple Photo 1" class="slider-image">
+                        <img src="assets/couple_2.jpg" alt="Couple Photo 2" class="slider-image">
+                        <img src="assets/couple_3.jpg" alt="Couple Photo 3" class="slider-image">
+                        <!-- Duplicating for infinite loop effect -->
+                        <img src="assets/couple_1.png" alt="Couple Photo 1" class="slider-image">
+                        <img src="assets/couple_2.jpg" alt="Couple Photo 2" class="slider-image">
+                        <img src="assets/couple_3.jpg" alt="Couple Photo 3" class="slider-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Wedding Events</h2>
+                <div class="events-grid">
+                    <!-- Haldi Card -->
+                    <div class="event-card haldi-theme reveal" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('assets/haldi_bg.png'); background-size: cover; background-position: center;">
+                        <div class="card-inner">
+                            <h3>Haldi Ceremony</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 30 June 2026</p>
+                                <p><i class="far fa-clock"></i> 6:00 PM</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Droupadi Lawns</p>
+                            </div>
+                            <p class="event-desc">Join us for a vibrant evening filled with colors, joy, and blessings as we kickstart the wedding festivities.</p>
+                        </div>
+                    </div>
+                    <!-- Wedding Card -->
+                    <div class="event-card wedding-theme reveal" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('assets/wedding_bg.png'); background-size: cover; background-position: center;">
+                        <div class="card-inner">
+                            <h3>Wedding Ceremony</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 01 July 2026</p>
+                                <p><i class="far fa-clock"></i> 12:30 PM</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Droupadi Lawns</p>
+                            </div>
+                            <p class="event-desc">Witness the union of two souls in a traditional grand ceremony. Your presence will make our day complete.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Section -->
+        <section id="venue" class="section-padding dark-bg">
+            <div class="container text-center">
+                <h2 class="section-title text-light">The Venue</h2>
+                <h3 class="venue-name" style="color: var(--ivory);">Droupadi Lawns</h3>
+                <div class="map-container reveal" style="padding: 0;">
+                    <!-- Placeholder map for Droupadi Lawns -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1709664402636!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/XAYqcfEXtuUga2PX9" target="_blank" class="premium-btn venue-btn" style="margin-top: 1.5rem;"><i class="fas fa-map-marker-alt"></i> Open Map</a>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="rsvp" class="section-padding">
+            <div class="container form-container reveal">
+                <h2 class="section-title">RSVP</h2>
+                <p class="text-center mb-4">Please let us know if you can make it!</p>
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" required placeholder="Your Mobile Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Will you attend?</label>
+                        <div class="radio-group" style="flex-wrap: wrap;">
+                            <label><input type="radio" name="attending" value="yes" checked> Joyfully Accept</label>
+                            <label><input type="radio" name="attending" value="no"> Regretfully Decline</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="premium-btn submit-btn">Confirm RSVP</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding dark-bg">
+            <div class="container text-center reveal">
+                <h2 class="section-title text-light">Contact & Assistance</h2>
+                <p style="margin-bottom: 2rem; color: var(--champagne-gold);">For any queries or assistance regarding the wedding.</p>
+                <a href="https://wa.me/910000000000" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with ❤️ for Rutuja & Vikram</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
